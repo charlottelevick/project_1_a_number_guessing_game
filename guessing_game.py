@@ -5,8 +5,16 @@ Project 1 - A Number Guessing Game
 """
 
 # Import the random and statistics modules.
+import random
+from statistics import mean
+from statistics import median
+from statistics import mode
 
 # Create the start_game function.
+start_game = input("Hi there, welcome to 'The Number Guessing Game!'\nWould you like to play?\ny or n?")
+if start_game.lower() == "y":
+    print("Great! Please choose a number between 1 and 100...")
+
 # Write your code inside this function.
 
 #   When the program starts, we want to:
