@@ -12,37 +12,36 @@ from statistics import median
 from statistics import mode
 
 # Create the start_game function.
-
 # Write your code inside this function.
+
+
+
+
 
 #   When the program starts, we want to:
 #   ------------------------------------
 #   1. Display an intro/welcome message to the player.
-name = input("Hello and welcome to 'The Number Guessing Game! What's your name?")
-start_game = input("Hi {}! Would you like to play?\n(Enter y/n)".format(name))
-
+name = input("Hello and welcome to 'The Number Guessing Game! What's your name? ")
+start_game = input("Hi {}! Would you like to play?\n(Please enter y/n) ".format(name))
 if start_game.lower() == "y":
     print("Great! Please choose a number between 1 and 100...")
-    
 else:
-    print("Ok no worries, see you later!")
+    print("Ok no worries, see you later {}!".format(name))
 
 #   2. Store a random number as the answer/solution.
 number = (random.randint(1,100))
-
+guess = int(input("Enter your guess: "))
 #   3. Continuously prompt the player for a guess.
 #     a. If the guess is greater than the solution, display to the player "It's lower".
 #     b. If the guess is less than the solution, display to the player "It's higher".
-guess_as_str = input("Enter your guess: ")
-guess_as_int = int(guess_as_str)
-
-while guess_as_int >= number:
-    print("It's lower. Try again!")
-    
-    if guess_as_int <= number:
-        print("It's higher. Try again!")
-    
-    if guess_as_int == number:
+while guess != number:
+    if (guess > number):
+        print("It's lower. Try again: ")
+        guess = int(input("Enter your guess: "))
+    if (guess < number):
+        print("It's higher. Try again: ")
+        guess = int(input("Enter your guess: "))
+    if (guess == number):
         print("Congratulations {}! You got it!".format(name))
         break
 
