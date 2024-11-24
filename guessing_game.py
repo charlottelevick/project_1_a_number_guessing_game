@@ -9,11 +9,11 @@ MAX_RANGE = 100
 MIN_RANGE = 1
 
 name = input("Hello and welcome to 'The Number Guessing Game! What's your name? ")
-user_choice = input("Hi {}! Would you like to play?\n(Please enter y/n) ".format(name))
+user_choice = input(f"Hi {name}! Would you like to play?\n(Please enter y/n) ")
 if user_choice.lower() == "y":
     print("Great! Please choose a number between 1 and 100...")
 else:
-    print("Ok no worries, see you later {}!".format(name))
+    print(f"Ok no worries, see you later {name}!")
     sys.exit()
     
 def start_game():
@@ -31,7 +31,7 @@ def start_game():
             continue
         
         if (guess > MAX_RANGE or guess < MIN_RANGE):
-            print("Please choose a number bewteen {} and {}...".format(MIN_RANGE, MAX_RANGE))
+            print(f"Please choose a number between {MIN_RANGE} and {MAX_RANGE}...")
             continue
         
         if (guess > number):
@@ -46,27 +46,27 @@ def start_game():
             list_of_guesses.append(guess)
             is_playing = False
 
-    print("Congratulations {}! You got it!".format(name))
+    print(f"Congratulations {name}! You got it!")
    
     guesses_to_win = len(list_of_guesses)
     total_guesses.append(guesses_to_win)
-    print("It took you {} time(s) to guess the number {}".format(guesses_to_win, number))
+    print(f"It took you {guesses_to_win} time(s) to guess the number {number}")
 
     print("Overall Statistics:")
     saved_attempts_mean = mean(total_guesses)
-    print("Mean: {}".format(saved_attempts_mean))
+    print(f"Mean: {saved_attempts_mean}")
    
     saved_attempts_median = median(total_guesses)
-    print("Median: {}".format( saved_attempts_median))
+    print(f"Median: {saved_attempts_median}")
     
     saved_attempts_mode = mode(total_guesses)
-    print("Mode: {}".format(saved_attempts_mode))
+    print(f"Mode: {saved_attempts_mode}")
 
-    restart = input("Want to play again?\n(Please enter y/n)")
+    restart = input(f"**Highscore: {saved_attempts_mode}**/n Want to play again?\n*\n(Please enter y/n)")
     if restart.lower() == "y":
         start_game()
     else:
-        print("Ok no worries, see you later {}!".format(name))
+        print(f"Ok no worries, see you later {name}!")
         sys.exit()
 
 start_game()
