@@ -62,7 +62,7 @@ def start_game():
     saved_attempts_mode = mode(total_guesses)
     print(f"Mode: {saved_attempts_mode}")
 
-    restart = input(f"**Highscore: {saved_attempts_mode}**\nWant to play again?\n(Please enter y/n)")
+    restart = input(f"**Highscore: {saved_attempts_mode}**\nWant to play again?\n(Please enter y/n) ")
     if restart.lower() == "y":
         start_game()
     else:
